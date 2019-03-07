@@ -55,4 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # JS runtime to be used by `execjs`
-gem 'therubyracer'
+gem 'mini_racer'
+
+gem 'bootstrap'
+gem 'jquery-rails'
