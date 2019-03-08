@@ -1,0 +1,17 @@
+<div class="leaderboard">
+    <table class="table table-hover font-weight-light">
+        <tr>
+            <th> Event </th>
+            <th> Points </th>
+            <th> Event Date </th>
+        </tr>
+
+        <% @events.each do |event| %>
+            <tr>
+                <td> <%= event.event_name %> </td>
+                <td> <%= event.points %> </td>
+                <td> <%= event.event_date.strftime('%d/%m/%Y') %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

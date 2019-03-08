@@ -1,19 +1,39 @@
-<div id="main-leaderboard">
-    <table class="table table-hover text-white font-weight-light">
-        <tr>
-            <th> Team </th>
-            <th> Event </th>
-            <th> Points </th>
-            <th> Event Date </th>
-        </tr>
+<div id="main-leaderboard" class="leaderboard row">
+    <div class="col-lg-6">
+        <div class="col-lg-12"> Team Status </div>
+        <div class="col-lg-12">
+            <table class="table table-hover font-weight-light">
+                <tr>
+                    <th> Team </th>
+                    <th> Total Points </th>
+                </tr>
 
-        <% @leaderboard.each do |team| %>
-            <tr>
-                <td> <%= team.team_name %> </td>
-                <td> <%= team.event_name %> </td>
-                <td> <%= team.points %> </td>
-                <td> <%= team.event_date.strftime('%d/%m/%Y') %> </td>
-            </tr>
-        <% end %>
-    </table>
+                <% @leaderboard[:team_status].each do |team| %>
+                    <tr>
+                        <td> <%= link_to(team.team_name, team_path(team.id)) %> </td>
+                        <td> <%= team.total_points %> </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="col-lg-12"> Event Details </div>
+        <div class="col-lg-12">
+            <table class="table table-hover font-weight-light">
+                <tr>
+                    <th> Team </th>
+                    <th> Total Points </th>
+                </tr>
+
+                <% @leaderboard[:event_details].each do |event| %>
+                    <tr>
+                        <td> <%= link_to(event.name, event_path(event.id)) %> </td>
+                        <td> <%= event.conducted_at.strftime('%d/%m/%Y') %> </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
 </div>

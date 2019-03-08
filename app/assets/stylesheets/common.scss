@@ -45,6 +45,11 @@
 /* Other styles for the page not related to the animated dropdown */
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #e1e2dc !important;
+}
+
+.leaderboard {
+    .table {
+        border: 2px solid rgba(0, 0, 0, 0.075);
+    }
 }
