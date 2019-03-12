@@ -2,6 +2,8 @@ class Team < ApplicationRecord
   has_many :team_events
   has_many :events, through: :team_events
 
+  accepts_nested_attributes_for :team_events
+
   def for_month(month = Time.current.month)
     self.class.joins(:team_events, :events)
       .select("team_events.points, date_part('month', events.conducted_at) AS event_month")

@@ -49,7 +49,43 @@ body {
 }
 
 .leaderboard {
-    .table {
-        border: 2px solid rgba(0, 0, 0, 0.075);
+  .table {
+    border: 2px solid #27ae60;
+    border-radius: .25rem;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th {
+      background: #27ae60;
+      color: #fff;
+      border: none;
     }
+
+    tr:last-child td {
+      border: none;
+    }
+
+    tr td {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    }
+
+    td.actions {
+      text-align: right;
+
+      .button {
+        color: #aaa;
+        cursor: pointer;
+        vertical-align: middle;
+        margin-top: -4px;
+      }
+
+      .edit:hover {
+        color: #0a79df;
+      }
+
+      .delete:hover {
+        color: #dc2a2a;
+      }
+    }
+  }
 }

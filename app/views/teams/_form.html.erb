@@ -1,0 +1,38 @@
+<%# <div class="col-lg-12">
+  Team Details
+</div> %>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form.label :name %>:
+    </div>
+    <div class="col-lg-6">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+<%# <div class="col-lg-12">
+  Event Details
+</div> %>
+
+<%#= form.fields_for :team_events do |te| %>
+  <%# <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-6"> %>
+        <%#= te.label :event %>
+      <%# </div>
+      <div class="col-lg-6"> %>
+        <%#= te.select :event, @events.collect { |e| [e.name, e.id] }, { include_blank: true }, class: 'form-control' %>
+      <%# </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-6"> %>
+        <%#= te.label :points %>
+      <%# </div>
+      <div class="col-lg-6"> %>
+        <%#= te.text_field :points, class: 'form-control' %>
+      <%# </div>
+  <div> %>
+<%# end %>

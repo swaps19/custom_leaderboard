@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-3"><br></div>
+  <div class="col-lg-6">
+    <%= form_with model: @team do |form| %>
+      <%= render 'form', form: form %>
+
+      <div class="col-lg-12 text-right mt-3">
+        <%= form.submit 'Update', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3"><br></div>
+</div>

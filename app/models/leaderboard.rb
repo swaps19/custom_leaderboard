@@ -8,8 +8,8 @@ class Leaderboard
     end
 
     def team_status
-      Team.joins(:team_events)
-          .select('teams.name AS team_name, sum(team_events.points) AS total_points, teams.id')
+      Team.joins('LEFT JOIN team_events ON teams.id = team_events.team_id')
+          .select('teams.name AS team_name, COALESCE(sum(team_events.points), 0) AS total_points, teams.id')
           .group('team_name, teams.id')
           .order('total_points DESC')
     end
