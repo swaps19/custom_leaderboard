@@ -1,13 +1,21 @@
-class TeamsController < ApplicationController
+class TeamEventsController < ApplicationController
   before_action :set_data
 
   def new
     @teams = Team.all
     @events = Event.all
+    @team_event = TeamEvent.new(team: @team, event: @event)
   end
 
   def create
     team_event = TeamEvent.new(team_event_params)
+    if team_event.save
+      flash[:success] = "#{@from_team ? 'Team' : 'Event'} #{team_event.name} added successfully!"
+    else
+      flash[:error] = team_event.errors.full_messages.join('<br/>')
+    end
+
+    @from_team ? redirect_to(:team_path, id: @team.id) : redirect_to(:event_path, id: @event.id)
   end
 
   private

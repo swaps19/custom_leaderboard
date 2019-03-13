@@ -1,20 +1,27 @@
-<table class="table table-hover font-weight-light">
-  <tr>
-    <th colspan="3"> Teams </th>
-  </tr>
+<div class="card-header">
+  Teams
+</div>
 
-  <% @teams.each do |team| %>
+<div class="card-body">
+  <table class="table table-hover font-weight-light">
     <tr>
-        <td class="text-left pl-5"><%= link_to(team.name, team_path(team.id)) %> </td>
-        <td class="actions">
-          <%= link_to edit_team_path(team) do %>
-            <i class="material-icons button edit">edit</i>
-          <% end %>
-
-          <%= link_to team_path(team), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="material-icons button delete">delete</i>
-          <% end %>
-        </td>
+      <th class="text-left pl-5"> Team Name </th>
+      <th class="actions"> Actions </th>
     </tr>
-  <% end %>
-</table>
+
+    <% @teams.each do |team| %>
+      <tr>
+          <td class="text-left pl-5"><%= link_to(team.name, team_path(team.id)) %> </td>
+          <td class="actions">
+            <%= link_to edit_team_path(team) do %>
+              <i class="material-icons button edit">edit</i>
+            <% end %>
+
+            <%= link_to team_path(team), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons button delete">delete</i>
+            <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

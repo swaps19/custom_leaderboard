@@ -1,0 +1,7 @@
+<%= form_with model: @team_event do |form| %>
+  <%= render 'form', form: form %>
+
+  <div class="card-footer text-right">
+    <%= form.submit 'Add', class: 'btn btn-primary pull-right' %>
+  </div>
+<% end %>
