@@ -46,6 +46,15 @@
 
 body {
   background: #e1e2dc !important;
+  font-size: smaller !important;
+
+  a, a:hover {
+    text-decoration: none;
+  }
+
+  .btn, .card-header {
+    font-size: 0.9rem;
+  }
 }
 
 .leaderboard {
