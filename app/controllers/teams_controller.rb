@@ -3,8 +3,8 @@ class TeamsController < ApplicationController
   before_action :set_events, only: [:edit, :new]
 
   def show
-    month = params[:month] || Time.current.month
-    @events = @team.for_month(month)
+    # month = params[:month] || Time.current.month
+    @events = @team.for_month(nil)
   end
 
   def new

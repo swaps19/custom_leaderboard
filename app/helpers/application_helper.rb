@@ -7,4 +7,8 @@ module ApplicationHelper
         when :alert then "alert alert-warning"
     end
   end
+
+  def formatted_event_date(event_date)
+    event_date.strftime('%d/%m/%Y')
+  end
 end

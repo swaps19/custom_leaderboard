@@ -3,7 +3,7 @@
   <div class='col-lg-5 text-right'>
     <div class="btn-group" role="group">
       <%= link_to 'Edit', edit_team_path, class: 'btn btn-secondary' %>
-      <%= link_to 'Add an Event', new_team_event_path(team_id: @team.id), class: 'btn btn-secondary' %>
+      <%= link_to 'Add an Event', new_team_event_path(team_id: @team.id, from_team: true), class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>
@@ -20,7 +20,7 @@
 
       <% @events.each do |event| %>
         <tr>
-            <td> <%= event.event_name %> </td>
+            <td> <%= link_to event.event_name, event_path(id: event.event_id) %> </td>
             <td> <%= event.points %> </td>
             <td> <%= event.event_date.strftime('%d/%m/%Y') %></td>
         </tr>

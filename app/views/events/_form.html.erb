@@ -1,5 +1,5 @@
 <div class="card-header">
-  Team Details
+  Event Details
 </div>
 
 <div class="card-body">
@@ -11,6 +11,15 @@
     </div>
     <div class="col-lg-9">
       <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <%= form.label :conducted_at %>:
+    </div>
+    <div class="col-lg-9">
+      <%= form.text_field :conducted_at, class: 'form-control', data: {"date-end-date" => "0d"} %>
     </div>
   </div>
 </div>

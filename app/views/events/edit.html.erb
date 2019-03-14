@@ -1,8 +1,8 @@
-<%= form_with model: @team do |form| %>
+<%= form_with model: @event do |form| %>
   <%= render 'form', form: form %>
 
   <div class="card-footer text-right form-actions">
-    <%= link_to 'Cancel', teams_path, class: 'btn btn-secondary pull-right mr-3' %>
+    <%= link_to 'Cancel', events_path, class: 'btn btn-secondary pull-right mr-3' %>
     <%= form.submit 'Update', class: 'btn btn-primary pull-right' %>
   </div>
 <% end %>

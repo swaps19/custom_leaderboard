@@ -7,8 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js' %>
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" %>
   </head>
 
   <body>
@@ -31,6 +33,7 @@
                 <%= link_to 'Add New Team', new_team_path, class: 'dropdown-item' %>
                 <div class="dropdown-divider"></div>
                 <%= link_to 'All Events', events_path, class: 'dropdown-item' %>
+                <%= link_to 'Add New Event', new_event_path, class: 'dropdown-item' %>
               </div>
             </li>
           </ul>

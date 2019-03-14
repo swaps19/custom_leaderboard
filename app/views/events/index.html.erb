@@ -1,0 +1,34 @@
+<div class="card-header row">
+  <div class='col-lg-7 text-left'> <h5> Events </h5> </div>
+  <div class='col-lg-5 text-right'>
+    <div class="btn-group" role="group">
+      <%= link_to 'Add an Event', new_event_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
+
+<div class="card-body">
+  <table class="table table-hover font-weight-light">
+    <tr>
+      <th class="text-left pl-5"> Event Name </th>
+      <th class="text-left"> Conducted At </th>
+      <th class="text-right"> Actions </th>
+    </tr>
+
+    <% @events.each do |event| %>
+      <tr>
+          <td class="text-left pl-5"><%= link_to(event.name, event_path(event.id)) %> </td>
+          <td class="text-left"> <%= formatted_event_date(event.conducted_at) %> </td>
+          <td class="actions">
+            <%= link_to edit_event_path(event) do %>
+              <i class="material-icons button edit">edit</i>
+            <% end %>
+
+            <%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons button delete">delete</i>
+            <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
