@@ -15,10 +15,11 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     if @team.save
       flash[:success] = "Team #{@team.name} added successfully!"
+      redirect_to action: :show, id: @team.id
     else
       flash[:error] = @team.errors.full_messages.join('<br/>')
+      redirect_to action: :new
     end
-    redirect_to :root #action: :show, id: @team.id
   end
 
   def edit

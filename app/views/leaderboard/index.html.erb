@@ -1,39 +1,39 @@
 <div id="main-leaderboard" class="row">
-    <div class="col-lg-12 card px-0">
-        <div class="card-header"> Team Status </div>
-        <div class="card-body">
-            <table class="table table-hover font-weight-light">
-                <tr>
-                    <th> Team </th>
-                    <th> Total Points </th>
-                </tr>
+  <div class="col-lg-12 card px-0">
+    <div class="card-header"> Team Status </div>
+    <div class="card-body">
+      <table class="table table-hover font-weight-light">
+        <tr>
+          <th> Team </th>
+          <th> Total Points </th>
+        </tr>
 
-                <% @leaderboard[:team_status].each do |team| %>
-                    <tr>
-                        <td> <%= link_to(team.team_name, team_path(team.id)) %> </td>
-                        <td> <%= team.total_points %> </td>
-                    </tr>
-                <% end %>
-            </table>
-        </div>
+        <% @leaderboard[:team_status].each do |team| %>
+        <tr>
+          <td> <%= link_to(team.team_name, team_path(team.id)) %> </td>
+          <td> <%= team.total_points %> </td>
+        </tr>
+        <% end %>
+      </table>
     </div>
+  </div>
 
-    <div class="col-lg-12 card px-0">
-        <div class="card-header"> Event Details </div>
-        <div class="card-body">
-            <table class="table table-hover font-weight-light">
-                <tr>
-                    <th> Team </th>
-                    <th> Total Points </th>
-                </tr>
+  <div class="col-lg-12 card px-0">
+    <div class="card-header"> Event Details </div>
+    <div class="card-body">
+      <table class="table table-hover font-weight-light">
+        <tr>
+          <th> Event </th>
+          <th> Conducted At </th>
+        </tr>
 
-                <% @leaderboard[:event_details].each do |event| %>
-                    <tr>
-                        <td> <%= link_to(event.name, event_path(event.id)) %> </td>
-                        <td> <%= event.conducted_at.strftime('%d/%m/%Y') %> </td>
-                    </tr>
-                <% end %>
-            </table>
-        </div>
+        <% @leaderboard[:event_details].each do |event| %>
+        <tr>
+          <td> <%= link_to(event.name, event_path(event.id)) %> </td>
+          <td> <%= event.conducted_at.strftime('%d/%m/%Y') %> </td>
+        </tr>
+        <% end %>
+      </table>
     </div>
+  </div>
 </div>

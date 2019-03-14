@@ -3,6 +3,7 @@ class Team < ApplicationRecord
   has_many :events, through: :team_events
 
   accepts_nested_attributes_for :team_events
+  validates_presence_of :name
 
   def for_month(month = Time.current.month)
     self.class.joins(:team_events, :events)

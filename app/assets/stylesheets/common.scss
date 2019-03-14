@@ -55,6 +55,12 @@ body {
   .btn, .card-header {
     font-size: 0.9rem;
   }
+
+  .disabled {
+    pointer-events: none;
+    background-color: #e9ecef;
+    opacity: 1;
+  }
 }
 
 .leaderboard {
@@ -100,5 +106,10 @@ body {
 
   .form-control {
     font-size: inherit;
+  }
+
+  .form-actions .btn {
+    min-width: 7rem;
+    max-width: 9rem;
   }
 }

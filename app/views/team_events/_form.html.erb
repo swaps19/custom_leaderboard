@@ -1,17 +1,23 @@
 <div class="card-header">
-  Team Details
+  Team Event Details
 </div>
 
 <div class="card-body">
+  <%= render 'shared/flash_view' %>
+
   <div class="row mb-3">
     <div class="col-lg-3">
       <%= form.label :event %>:
     </div>
     <div class="col-lg-9">
-      <%= form.select :event, options_for_select(@events.collect { |e| [e.name, e.id] }, [@event.try(:name), @event.try(:id)]),
-                              { include_blank: 'Choose Event' },
-                              class: 'form-control',
-                              disabled:@from_event
+      <%= form.select :event_id, options_for_events,
+                                {
+                                  selected: @event.try(:id),
+                                  prompt: 'Choose Event'
+                                },
+                                {
+                                  class: "form-control #{ @from_event ? 'disabled' : ''}"
+                                }
       %>
     </div>
   </div>
@@ -21,10 +27,9 @@
       <%= form.label :team %>:
     </div>
     <div class="col-lg-9">
-      <%= form.select :team, options_for_select(@teams.collect { |e| [e.name, e.id] }, [@team.try(:name), @team.try(:id)]),
-                              { include_blank: 'Choose Team' },
-                              class: 'form-control',
-                              disabled:@from_team
+      <%= form.select :team_id, options_for_teams,
+                                { include_blank: 'Choose Team' },
+                                { class: "form-control #{ @from_team ? 'disabled' : ''}" }
       %>
     </div>
   </div>

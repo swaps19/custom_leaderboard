@@ -1,5 +1,10 @@
-<div class="card-header">
-  Teams
+<div class="card-header row">
+  <div class='col-lg-7 text-left'> <h5> Teams </h5> </div>
+  <div class='col-lg-5 text-right'>
+    <div class="btn-group" role="group">
+      <%= link_to 'Add a Team', new_team_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
 </div>
 
 <div class="card-body">

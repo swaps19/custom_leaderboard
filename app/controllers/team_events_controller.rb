@@ -2,29 +2,32 @@ class TeamEventsController < ApplicationController
   before_action :set_data
 
   def new
-    @teams = Team.all
-    @events = Event.all
     @team_event = TeamEvent.new(team: @team, event: @event)
+    raise ActionController::RoutingError.new('Not Found') unless @from_event || @from_team
   end
 
   def create
     team_event = TeamEvent.new(team_event_params)
     if team_event.save
-      flash[:success] = "#{@from_team ? 'Team' : 'Event'} #{team_event.name} added successfully!"
+      flash[:success] = "Team Event added successfully!"
+      @from_team ? redirect_to(controller: :teams, action: :show, id: @team.id) : redirect_to(controller: :events, action: :show, id: @event.id)
     else
       flash[:error] = team_event.errors.full_messages.join('<br/>')
+      redirect_to(action: :new, team_id: @team.try(:id), event_id: @event.try(:id))
     end
-
-    @from_team ? redirect_to(:team_path, id: @team.id) : redirect_to(:event_path, id: @event.id)
   end
 
   private
 
   def set_data
-    @team  = Team.find_by(id: params[:team_id]) if params[:team_id].present?
-    @event = Event.find_by(id: params[:event_id]) if params[:event_id].present?
+    @team  = Team.find_by(id: params[:team_id] || params[:team_event].try(:[], :team_id))
+    @event = Event.find_by(id: params[:event_id] || params[:team_event].try(:[], :event_id))
     @from_team = @team.present?
     @from_event = @event.present?
+    @teams = Team.all
+    @events = Event.all
+    @assigned_teams = Team.where(id: TeamEvent.select(:team_id).where(event_id: @event.try(:id)))
+    @assigned_events = Event.where(id: TeamEvent.select(:event_id).where(team_id: @team.try(:id)))
   end
 
   def team_event_params
