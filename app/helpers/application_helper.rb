@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def formatted_event_date(event_date)
-    event_date.strftime('%d/%m/%Y')
+    event_date.try(:strftime, '%d/%m/%Y')
   end
 end

@@ -29,6 +29,8 @@
             </a>
               <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
               <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                <%= link_to 'Scoreboard Overview', root_path, class: 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
                 <%= link_to 'All Teams', teams_path, class: 'dropdown-item' %>
                 <%= link_to 'Add New Team', new_team_path, class: 'dropdown-item' %>
                 <div class="dropdown-divider"></div>

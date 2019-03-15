@@ -6,20 +6,20 @@
   <%= render 'shared/flash_view' %>
 
   <div class="row mb-3">
-    <div class="col-lg-3">
+    <div class="col-lg-3 text-left">
       <%= form.label :name %>:
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-9 text-left">
       <%= form.text_field :name, class: 'form-control' %>
     </div>
   </div>
 
   <div class="row mb-3">
-    <div class="col-lg-3">
+    <div class="col-lg-3 text-left">
       <%= form.label :conducted_at %>:
     </div>
-    <div class="col-lg-9">
-      <%= form.text_field :conducted_at, class: 'form-control', data: {"date-end-date" => "0d"} %>
+    <div class="col-lg-9 text-left">
+      <%= form.text_field :conducted_at, value: formatted_event_date(@event.conducted_at), class: 'form-control', data: {"date-end-date" => "0d"} %>
     </div>
   </div>
 </div>

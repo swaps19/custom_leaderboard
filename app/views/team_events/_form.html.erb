@@ -1,3 +1,6 @@
+<%= hidden_field_tag :from_team, @from_team %>
+<%= hidden_field_tag :from_event, @from_event %>
+
 <div class="card-header">
   Team Event Details
 </div>
@@ -16,7 +19,7 @@
                                   prompt: 'Choose Event'
                                 },
                                 {
-                                  class: "form-control #{ @from_event ? 'disabled' : ''}"
+                                  class: "form-control #{ @from_event || @event.present? ? 'disabled' : ''}"
                                 }
       %>
     </div>
@@ -29,7 +32,7 @@
     <div class="col-lg-9">
       <%= form.select :team_id, options_for_teams,
                                 { include_blank: 'Choose Team' },
-                                { class: "form-control #{ @from_team ? 'disabled' : ''}" }
+                                { class: "form-control #{ @from_team || @team.present? ? 'disabled' : ''}" }
       %>
     </div>
   </div>

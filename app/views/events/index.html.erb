@@ -10,21 +10,21 @@
 <div class="card-body">
   <table class="table table-hover font-weight-light">
     <tr>
-      <th class="text-left pl-5"> Event Name </th>
+      <th class="text-left"> Event Name </th>
       <th class="text-left"> Conducted At </th>
       <th class="text-right"> Actions </th>
     </tr>
 
     <% @events.each do |event| %>
       <tr>
-          <td class="text-left pl-5"><%= link_to(event.name, event_path(event.id)) %> </td>
+          <td class="text-left"><%= link_to(event.name, event_path(event.id)) %> </td>
           <td class="text-left"> <%= formatted_event_date(event.conducted_at) %> </td>
           <td class="actions">
-            <%= link_to edit_event_path(event) do %>
+            <%= link_to edit_event_path(event), title: 'Edit Event' do %>
               <i class="material-icons button edit">edit</i>
             <% end %>
 
-            <%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete Event' do %>
               <i class="material-icons button delete">delete</i>
             <% end %>
           </td>

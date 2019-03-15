@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def show
     # month = params[:month] || Time.current.month

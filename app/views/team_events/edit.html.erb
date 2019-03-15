@@ -2,7 +2,7 @@
   <%= render 'form', form: form %>
 
   <div class="card-footer text-right form-actions">
-    <%= link_to 'Cancel', @from_team ? team_path(@team) : event_path(@event), class: 'btn btn-secondary pull-right mr-3' %>
+    <%= link_to 'Cancel', @from_team ? team_path(id: @team.id) : event_path(id: @event.id), class: 'btn btn-secondary pull-right mr-3' %>
     <%= form.submit 'Update', class: 'btn btn-primary pull-right' %>
   </div>
 <% end %>

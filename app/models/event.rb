@@ -5,8 +5,8 @@ class Event < ApplicationRecord
   validates_presence_of :name, :conducted_at
 
   def for_month(month = Time.current.month)
-    teams = self.class.joins(:team_events, :teams)
-      .select("team_events.points, teams.name AS team_name, teams.id AS team_id")
+    teams = self.class.joins(teams: :team_events)
+      .select("DISTINCT team_events.points, teams.name AS team_name, teams.id AS team_id, team_events.id AS team_event_id")
       .where("events.id = ?", id)
       .order('team_events.points DESC')
 

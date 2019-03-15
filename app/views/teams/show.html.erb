@@ -16,6 +16,7 @@
         <th> Event </th>
         <th> Points </th>
         <th> Event Date </th>
+        <th class="text-right"> Actions </th>
       </tr>
 
       <% @events.each do |event| %>
@@ -23,6 +24,16 @@
             <td> <%= link_to event.event_name, event_path(id: event.event_id) %> </td>
             <td> <%= event.points %> </td>
             <td> <%= event.event_date.strftime('%d/%m/%Y') %></td>
+            <td class="actions">
+              <%= link_to edit_team_event_path(id: event.team_event_id, team_id: @team.id, from_team: true), title: 'Edit Details' do %>
+                <i class="material-icons button edit">edit</i>
+              <% end %>
+
+              <%= link_to team_event_path(id: event.team_event_id, team_id: @team.id, from_team: true),
+                          method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete Team' do %>
+                <i class="material-icons button delete">delete</i>
+              <% end %>
+            </td>
         </tr>
       <% end %>
     </table>
