@@ -1,0 +1,48 @@
+<%= hidden_field_tag :from_team, @from_team %>
+<%= hidden_field_tag :from_event, @from_event %>
+
+<div class="card-header">
+  Team Event Details
+</div>
+
+<div class="card-body">
+  <%= render 'shared/flash_view' %>
+
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <%= form.label :event %>:
+    </div>
+    <div class="col-lg-9">
+      <%= form.select :event_id, options_for_events,
+                                {
+                                  selected: @event.try(:id),
+                                  prompt: 'Choose Event'
+                                },
+                                {
+                                  class: "form-control #{ @from_event || @event.present? ? 'disabled' : ''}"
+                                }
+      %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <%= form.label :team %>:
+    </div>
+    <div class="col-lg-9">
+      <%= form.select :team_id, options_for_teams,
+                                { include_blank: 'Choose Team' },
+                                { class: "form-control #{ @from_team || @team.present? ? 'disabled' : ''}" }
+      %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <%= form.label :points %>:
+    </div>
+    <div class="col-lg-9">
+      <%= form.text_field :points, class: 'form-control' %>
+    </div>
+  </div>
+</div>

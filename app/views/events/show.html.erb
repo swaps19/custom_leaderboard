@@ -1,0 +1,50 @@
+<div class="row card-header">
+  <div class='col-lg-7 text-left'>
+    <div class="row">
+      <div class='col-lg-12 text-left'>
+        <h5><%= @event.name %></h5>
+      </div>
+      <div class='col-lg-12 text-left'>
+        <b> Conducted At : </b>
+        <%= formatted_event_date(@event.conducted_at) %>
+      </div>
+    </div>
+  </div>
+
+  <div class='col-lg-5 text-right'>
+    <div class="btn-group" role="group">
+      <%= link_to 'Edit', edit_event_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Add a team', new_team_event_path(event_id: @event.id, from_event: true), class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
+
+<div class="row card-body">
+  <div class='col-lg-12'>
+    <%= render 'shared/flash_view' %>
+    <table class="table table-hover font-weight-light">
+      <tr>
+        <th class="text-left"> Team </th>
+        <th class="text-left"> Points </th>
+        <th class="text-right"> Actions </th>
+      </tr>
+
+      <% @teams.each do |team| %>
+        <tr>
+            <td class="text-left"> <%= link_to team.team_name, team_path(id: team.team_id) %> </td>
+            <td class="text-left"> <%= team.points %> </td>
+            <td class="actions">
+              <%= link_to edit_team_event_path(id: team.team_event_id, from_event: true, event_id: @event.id), title: 'Edit Details' do %>
+                <i class="material-icons button edit">edit</i>
+              <% end %>
+
+              <%= link_to team_event_path(id: team.team_event_id, event_id: @event.id, from_event: true),
+                          method: :delete, data: { confirm: 'Do you want to delete this event?' }, title: 'Delete Event' do %>
+                <i class="material-icons button delete">delete</i>
+              <% end %>
+            </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

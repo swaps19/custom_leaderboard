@@ -1,0 +1,8 @@
+<%= form_with model: @event do |form| %>
+  <%= render 'form', form: form %>
+
+  <div class="card-footer text-right form-actions">
+    <%= link_to 'Cancel', events_path, class: 'btn btn-secondary pull-right mr-3' %>
+    <%= form.submit 'Add', class: 'btn btn-primary pull-right' %>
+  </div>
+<% end %>

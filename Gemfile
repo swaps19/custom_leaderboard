@@ -39,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
+  gem 'pry'
 end
 
 group :development do
@@ -55,4 +57,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # JS runtime to be used by `execjs`
-gem 'therubyracer'
+gem 'mini_racer'
+
+gem 'bootstrap'
+gem 'jquery-rails'

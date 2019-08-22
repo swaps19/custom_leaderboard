@@ -7,9 +7,51 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js' %>
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <%= link_to 'Scoreboard Overview', root_path, class: 'navbar-brand' %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actions
+            </a>
+              <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+              <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                <%= link_to 'Scoreboard Overview', root_path, class: 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to 'All Teams', teams_path, class: 'dropdown-item' %>
+                <%= link_to 'Add New Team', new_team_path, class: 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to 'All Events', events_path, class: 'dropdown-item' %>
+                <%= link_to 'Add New Event', new_event_path, class: 'dropdown-item' %>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class='col-lg-3'> <br> </div>
+        <div class="leaderboard col-lg-6 card mx-5 border-secondary">
+          <%= yield %>
+        </div>
+        <div class='col-lg-3'> <br> </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,16 @@
+<div class="card-header">
+  Team Details
+</div>
+
+<div class="card-body">
+  <%= render 'shared/flash_view' %>
+
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <%= form.label :name %>:
+    </div>
+    <div class="col-lg-9">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+</div>
