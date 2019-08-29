@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ruby -v'
                 sh 'bundle install'
+                sh 'bundle exec rails db:migrate'
             }
         }
     }
