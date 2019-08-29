@@ -7,6 +7,20 @@ pipeline {
                 sh 'bundle exec rails db:migrate'
             }
         }
+
+        stage('Test') {
+            steps {
+                sh 'bundle exec rails test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'cd /home/remote_user/custom_leaderboard'
+                echo '***** Printing the env *****'
+                sh 'printenv'
+            }
+        }
     }
     post {
         always {
