@@ -1,9 +1,10 @@
 pipeline {
-    agent { docker { image 'ruby' } }
+    agent { label 'remote_slave' }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'rails -v'
+                sh 'ruby -v'
+                sh 'bundle install'
             }
         }
     }
